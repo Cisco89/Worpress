@@ -1,0 +1,26 @@
+services:
+  web:
+    depends_on:
+      - database
+    build: .
+    image: wordpress:latest
+    volumes:
+      - ../:/var/www/html/
+    ports:
+      - 80:80
+      - 443:443
+      - 9000:9000
+    environment:
+      - WORDPRESS_DB_HOST=database:3306
+      - WORDPRESS_DB_USER=developer
+      - WORDPRESS_DB_PASSWORD=developer
+  database:
+      image: mysql:latest
+      ports:
+            - 3306:3306
+      environment:
+        - MYSQL_ROOT_PASSWORD=developer
+        - MYSQL_DATABASE=lol_friend_compare
+        - MYSQL_USER=developer
+        - MYSQL_PASSWORD=developer
+version: "2"
