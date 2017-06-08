@@ -1,8 +1,24 @@
-<footer class="site-footer">
+    <footer class="site-footer">
 
-    <p><?= bloginfo('name'); ?> - &copy; <?= date('Y'); ?></p>
+        <nav class="site-nav">
 
-</footer>
+            <?php
+
+            $arguments = [
+                'theme_location' => 'footer'
+            ];
+
+            wp_nav_menu( $arguments);
+
+            ?>
+
+        </nav>
+
+        <p><?= bloginfo('name'); ?> - &copy; <?= date('Y'); ?></p>
+
+    </footer>
+
+</div>
 
 <?php wp_footer(); ?>
 </body>
